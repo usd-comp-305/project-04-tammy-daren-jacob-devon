@@ -8,7 +8,6 @@ public class SimulationServer implements SimulationListener {
     public SimulationServer(Simulation simulation, BodyFactory bodyFactory){
         this.simulation = simulation;
         this.bodyFactory = bodyFactory;
-        return;
     }
 
     @Override
