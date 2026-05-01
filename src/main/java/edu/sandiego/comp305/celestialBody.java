@@ -1,8 +1,13 @@
 package edu.sandiego.comp305;
 
 public interface celestialBody {
-    //Vector2D getPosition();
-    double getMass();
-    //void applyForce(Vector2D force);
-    void update(double dt);
+
+    public abstract Vector2D getPosition();
+
+    public abstract double getMass();
+
+    public abstract void applyForce(Vector2D force);
+
+    public abstract void update(double dt);
+
 }
