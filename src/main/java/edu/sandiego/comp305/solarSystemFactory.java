@@ -1,5 +1,12 @@
 package edu.sandiego.comp305;
 
+import edu.sandiego.comp305.BodyFactory;
+import edu.sandiego.comp305.CelestialBody;
+import edu.sandiego.comp305.Star;
+import edu.sandiego.comp305.Planet;
+import edu.sandiego.comp305.Spaceship;
+import edu.sandiego.comp305.Vector2D;
+
 import java.util.ArrayList;
 import java.util.List;
 
