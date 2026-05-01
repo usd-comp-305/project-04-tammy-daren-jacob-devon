@@ -9,9 +9,10 @@ public final class Vector2D {
     public static final Vector2D ZERO = new Vector2D(0.0, 0.0);
 
     private final double x;
+
     private final double y;
 
-    public Vector2D(double x, double y) {
+    public Vector2D(final double x, final double y) {
         this.x = x;
         this.y = y;
     }
@@ -24,15 +25,15 @@ public final class Vector2D {
         return 0.0;
     }
 
-    public Vector2D add(Vector2D other) {
+    public Vector2D add(final Vector2D other) {
         return null;
     }
 
-    public Vector2D subtract(Vector2D other) {
+    public Vector2D subtract(final Vector2D other) {
         return null;
     }
 
-    public Vector2D scale(double s) {
+    public Vector2D scale(final double s) {
         return null;
     }
 
@@ -44,11 +45,11 @@ public final class Vector2D {
         return 0.0;
     }
 
-    public double distanceTo(Vector2D other) {
+    public double distanceTo(final Vector2D other) {
         return 0.0;
     }
 
-    public double distanceSquaredTo(Vector2D other) {
+    public double distanceSquaredTo(final Vector2D other) {
         return 0.0;
     }
 
@@ -56,13 +57,13 @@ public final class Vector2D {
         return null;
     }
 
-    public double dot(Vector2D other) {
+    public double dot(final Vector2D other) {
         return 0.0;
     }
 
     @Override
-    public boolean equals(Object o) {
-        return false;
+    public boolean equals(final Object o) {
+        return this == o;
     }
 
     @Override
@@ -72,6 +73,6 @@ public final class Vector2D {
 
     @Override
     public String toString() {
-        return null;
+        return "";
     }
 }
