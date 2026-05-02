@@ -3,11 +3,9 @@ import java.util.List;
 
 public class SimulationServer implements SimulationListener {
     private final Simulation simulation;
-    private final BodyFactory bodyFactory;
 
-    public SimulationServer(Simulation simulation, BodyFactory bodyFactory){
+    public SimulationServer(Simulation simulation){
         this.simulation = simulation;
-        this.bodyFactory = bodyFactory;
     }
 
     @Override
