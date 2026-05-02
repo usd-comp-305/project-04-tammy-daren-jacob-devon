@@ -1,9 +1,13 @@
 package edu.sandiego.comp305;
+
 import java.util.List;
 
 public class Simulation {
+
     private final List<CelestialBody> bodies;
+
     private boolean running;
+
     private final List<SimulationListener> listeners;
 
     public Simulation() {
@@ -16,7 +20,11 @@ public class Simulation {
         return bodies;
     }
 
-    public void addBody(CelestialBody body) {
+    public boolean isRunning() {
+        return running;
+    }
+
+    public void addBody(final CelestialBody body) {
         return;
     }
 
@@ -32,11 +40,11 @@ public class Simulation {
         return;
     }
 
-    public void addListener(SimulationListener listener) {
+    public void addListener(final SimulationListener listener) {
         return;
     }
 
-    public void removeListener(SimulationListener listener) {
+    public void removeListener(final SimulationListener listener) {
         return;
     }
 
