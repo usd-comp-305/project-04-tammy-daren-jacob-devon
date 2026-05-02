@@ -1,5 +1,5 @@
 # Default ignored files
-.idea
+.idea/
 /shelf/
 /workspace.xml
 # Created by https://www.toptal.com/developers/gitignore/api/intellij,macos,windows,java,gradle
