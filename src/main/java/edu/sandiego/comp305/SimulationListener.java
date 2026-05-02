@@ -5,5 +5,5 @@ public interface SimulationListener {
 
     void onStateChanged(List<CelestialBody> bodies);
 
-    }
 }
+
