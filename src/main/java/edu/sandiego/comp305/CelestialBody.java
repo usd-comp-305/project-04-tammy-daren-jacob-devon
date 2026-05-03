@@ -1,6 +1,6 @@
 package edu.sandiego.comp305;
 
-public interface celestialBody {
+public interface CelestialBody {
 
     public abstract Vector2D getPosition();
 
