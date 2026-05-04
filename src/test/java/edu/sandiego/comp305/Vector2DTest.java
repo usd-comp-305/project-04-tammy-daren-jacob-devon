@@ -222,4 +222,57 @@ class Vector2DTest {
     void normalizeZeroThrowsException() {
         assertThrows(ArithmeticException.class, Vector2D.ZERO::normalize);
     }
+
+    @Test
+    void dotOfPerpendicularsIsZero() {
+        assertEquals(0.0, new Vector2D(1.0, 0.0).dot(new Vector2D(0.0, 1.0)));
+    }
+
+    @Test
+    void dotOfParallelsIsProduct() {
+        assertEquals(6.0, new Vector2D(3.0, 0.0).dot(new Vector2D(2.0, 0.0)));
+    }
+
+    @Test
+    void dotIsCommutative() {
+        final Vector2D a = new Vector2D(2.0, 3.0);
+        final Vector2D b = new Vector2D(4.0, -1.0);
+        assertEquals(a.dot(b), b.dot(a));
+    }
+
+    @Test
+    void dotHandlesNegativeProduct() {
+        assertEquals(-1.0, new Vector2D(1.0, 0.0).dot(new Vector2D(-1.0, 0.0)));
+    }
+
+    @Test
+    void distanceSquaredToSelfIsZero() {
+        final Vector2D v = new Vector2D(3.0, 4.0);
+        assertEquals(0.0, v.distanceSquaredTo(v));
+    }
+
+    @Test
+    void distanceSquaredToThreeFourPairIs25() {
+        final Vector2D target = new Vector2D(3.0, 4.0);
+        assertEquals(25.0, Vector2D.ZERO.distanceSquaredTo(target));
+    }
+
+    @Test
+    void distanceToSelfIsZero() {
+        final Vector2D v = new Vector2D(3.0, 4.0);
+        assertEquals(0.0, v.distanceTo(v), 1e-9);
+    }
+
+    @Test
+    void distanceToThreeFourPairIs5() {
+        final Vector2D target = new Vector2D(3.0, 4.0);
+        assertEquals(5.0, Vector2D.ZERO.distanceTo(target), 1e-9);
+    }
+
+    @Test
+    void distanceToIsSymmetric() {
+        final Vector2D a = new Vector2D(1.0, 2.0);
+        final Vector2D b = new Vector2D(7.0, -3.0);
+        assertEquals(a.distanceTo(b), b.distanceTo(a), 1e-9);
+    }
 }

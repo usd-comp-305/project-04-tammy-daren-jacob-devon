@@ -46,11 +46,13 @@ public final class Vector2D {
     }
 
     public double distanceTo(final Vector2D other) {
-        return 0.0;
+        return Math.sqrt(distanceSquaredTo(other));
     }
 
     public double distanceSquaredTo(final Vector2D other) {
-        return 0.0;
+        final double dx = x - other.x;
+        final double dy = y - other.y;
+        return dx * dx + dy * dy;
     }
 
     public Vector2D normalize() {
@@ -62,7 +64,7 @@ public final class Vector2D {
     }
 
     public double dot(final Vector2D other) {
-        return 0.0;
+        return x * other.x + y * other.y;
     }
 
     @Override
