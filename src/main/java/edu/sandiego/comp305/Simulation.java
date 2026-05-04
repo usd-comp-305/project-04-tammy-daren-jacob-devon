@@ -30,7 +30,7 @@ public class Simulation {
         return;
     }
 
-    public void tick() {
+    public void tick(final double dt) {
         return;
     }
 
