@@ -26,15 +26,15 @@ public final class Vector2D {
     }
 
     public Vector2D add(final Vector2D other) {
-        return null;
+        return new Vector2D(x + other.x, y + other.y);
     }
 
     public Vector2D subtract(final Vector2D other) {
-        return null;
+        return new Vector2D(x - other.x, y - other.y);
     }
 
     public Vector2D scale(final double s) {
-        return null;
+        return new Vector2D(x * s, y * s);
     }
 
     public double magnitude() {

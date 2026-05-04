@@ -90,4 +90,82 @@ class Vector2DTest {
     void toStringIsNotEmpty() {
         assertFalse(new Vector2D(0.0, 0.0).toString().isEmpty());
     }
+
+    @Test
+    void addCombinesXComponents() {
+        final Vector2D sum = new Vector2D(1.0, 2.0).add(new Vector2D(3.0, 4.0));
+        assertEquals(4.0, sum.getX());
+    }
+
+    @Test
+    void addCombinesYComponents() {
+        final Vector2D sum = new Vector2D(1.0, 2.0).add(new Vector2D(3.0, 4.0));
+        assertEquals(6.0, sum.getY());
+    }
+
+    @Test
+    void addZeroIsIdentity() {
+        final Vector2D v = new Vector2D(1.0, 2.0);
+        assertEquals(v, v.add(Vector2D.ZERO));
+    }
+
+    @Test
+    void addHandlesNegativeComponents() {
+        final Vector2D a = new Vector2D(1.0, 2.0);
+        final Vector2D b = new Vector2D(-5.0, -3.0);
+        assertEquals(new Vector2D(-4.0, -1.0), a.add(b));
+    }
+
+    @Test
+    void subtractCombinesXComponents() {
+        final Vector2D a = new Vector2D(5.0, 7.0);
+        final Vector2D diff = a.subtract(new Vector2D(1.0, 2.0));
+        assertEquals(4.0, diff.getX());
+    }
+
+    @Test
+    void subtractCombinesYComponents() {
+        final Vector2D a = new Vector2D(5.0, 7.0);
+        final Vector2D diff = a.subtract(new Vector2D(1.0, 2.0));
+        assertEquals(5.0, diff.getY());
+    }
+
+    @Test
+    void subtractFromSelfGivesZero() {
+        final Vector2D v = new Vector2D(3.0, 4.0);
+        assertEquals(Vector2D.ZERO, v.subtract(v));
+    }
+
+    @Test
+    void subtractZeroIsIdentity() {
+        final Vector2D v = new Vector2D(1.0, 2.0);
+        assertEquals(v, v.subtract(Vector2D.ZERO));
+    }
+
+    @Test
+    void scaleByPositiveMultipliesX() {
+        assertEquals(6.0, new Vector2D(2.0, 3.0).scale(3.0).getX());
+    }
+
+    @Test
+    void scaleByPositiveMultipliesY() {
+        assertEquals(9.0, new Vector2D(2.0, 3.0).scale(3.0).getY());
+    }
+
+    @Test
+    void scaleByZeroGivesZeroVector() {
+        assertEquals(Vector2D.ZERO, new Vector2D(2.0, 3.0).scale(0.0));
+    }
+
+    @Test
+    void scaleByOneIsIdentity() {
+        final Vector2D v = new Vector2D(2.0, 3.0);
+        assertEquals(v, v.scale(1.0));
+    }
+
+    @Test
+    void scaleByNegativeFlipsComponents() {
+        final Vector2D scaled = new Vector2D(2.0, 3.0).scale(-1.0);
+        assertEquals(new Vector2D(-2.0, -3.0), scaled);
+    }
 }
