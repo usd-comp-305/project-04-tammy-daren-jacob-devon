@@ -17,14 +17,14 @@ public class SimulationTests {
     void simulationTriesToStartAgain() {
         Simulation sim = new Simulation();
         sim.start();
-        assertThrows(RuntimeException.class, sim::start);
+        assertThrows(IllegalStateException.class, sim::start);
     }
 
     @Test
     void simulationTriesToStartWhilePaused() {
         Simulation sim = new Simulation();
         sim.start();
-        assertThrows(RuntimeException.class, sim::start);
+        assertThrows(IllegalStateException.class, sim::start);
     }
 
     @Test
@@ -40,13 +40,13 @@ public class SimulationTests {
         Simulation sim = new Simulation();
         sim.start();
         sim.pause();
-        assertThrows(RuntimeException.class, sim::pause);
+        assertThrows(IllegalStateException.class, sim::pause);
     }
 
     @Test
     void simulationTriesToPauseWithoutStarting() {
         Simulation sim = new Simulation();
-        assertThrows(RuntimeException.class, sim::pause);
+        assertThrows(IllegalStateException.class, sim::pause);
     }
 
     @Test
@@ -62,7 +62,7 @@ public class SimulationTests {
     void simulationTriesToResumeWithoutPausing() {
         Simulation sim = new Simulation();
         sim.start();
-        assertThrows(RuntimeException.class, sim::resume);
+        assertThrows(IllegalStateException.class, sim::resume);
     }
 
     @Test
@@ -78,6 +78,6 @@ public class SimulationTests {
         Simulation sim = new Simulation();
         sim.start();
         sim.reset();
-        assertThrows(RuntimeException.class, sim::reset);
+        assertThrows(IllegalStateException.class, sim::reset);
     }
 }

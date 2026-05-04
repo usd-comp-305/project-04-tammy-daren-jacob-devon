@@ -35,19 +35,35 @@ public class Simulation {
     }
 
     public void start() {
-        this.status = SimulationStatus.RUNNING;
+        if (this.status == SimulationStatus.INITIAL) {
+            this.status = SimulationStatus.RUNNING;
+        } else{
+            throw new IllegalStateException("Simulation has already started.");
+        }
     }
 
     public void pause() {
-        this.status = SimulationStatus.PAUSED;
+        if (this.status == SimulationStatus.RUNNING) {
+            this.status = SimulationStatus.PAUSED;
+        } else{
+            throw new IllegalStateException("Simulation cannot be paused.");
+        }
     }
 
     public void resume() {
-        this.status = SimulationStatus.RUNNING;
+        if (this.status == SimulationStatus.PAUSED) {
+            this.status = SimulationStatus.RUNNING;
+        } else{
+            throw new IllegalStateException("Simulation cannot be resumed.");
+        }
     }
 
     public void reset() {
-        this.status = SimulationStatus.INITIAL;
+        if (this.status != SimulationStatus.INITIAL) {
+            this.status = SimulationStatus.INITIAL;
+        } else{
+            throw new IllegalStateException("Simulation cannot be reset.");
+        }
     }
 
     public void addListener(final SimulationListener listener) {
