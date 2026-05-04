@@ -35,19 +35,19 @@ public class Simulation {
     }
 
     public void start() {
-        return;
+        this.status = SimulationStatus.RUNNING;
     }
 
     public void pause() {
-        return;
+        this.status = SimulationStatus.PAUSED;
     }
 
     public void resume() {
-        return;
+        this.status = SimulationStatus.RUNNING;
     }
 
     public void reset() {
-        return;
+        this.status = SimulationStatus.INITIAL;
     }
 
     public void addListener(final SimulationListener listener) {
