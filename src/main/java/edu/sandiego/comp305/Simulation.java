@@ -18,8 +18,8 @@ public class Simulation {
         this.listeners = new ArrayList<>();
     }
 
-    public List<CelestialBody> getBodies() {
-        return bodies;
+    public String getBodies() {
+        return bodies.toString();
     }
 
     public boolean isRunning() {
