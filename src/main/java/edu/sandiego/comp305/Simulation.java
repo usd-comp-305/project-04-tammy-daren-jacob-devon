@@ -1,5 +1,7 @@
 package edu.sandiego.comp305;
 
+import java.util.ArrayList;
+
 import java.util.List;
 
 public class Simulation {
@@ -11,9 +13,9 @@ public class Simulation {
     private final List<SimulationListener> listeners;
 
     public Simulation() {
-        this.bodies = null;
+        this.bodies = new ArrayList<>();
         this.running = false;
-        this.listeners = null;
+        this.listeners = new ArrayList<>();
     }
 
     public List<CelestialBody> getBodies() {
@@ -32,7 +34,15 @@ public class Simulation {
         return;
     }
 
+    public void start() {
+        return;
+    }
+
     public void pause() {
+        return;
+    }
+
+    public void resume() {
         return;
     }
 
