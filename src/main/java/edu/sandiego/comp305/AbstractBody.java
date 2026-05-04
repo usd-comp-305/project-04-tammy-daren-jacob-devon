@@ -1,6 +1,6 @@
 package edu.sandiego.comp305;
 
-public abstract class AbstractBody implements celestialBody {
+public abstract class AbstractBody implements CelestialBody {
 
     protected String name;
 
@@ -9,6 +9,18 @@ public abstract class AbstractBody implements celestialBody {
     protected Vector2D position;
 
     protected Vector2D velocity;
+
+    private Vector2D netForce = Vector2D.ZERO;
+
+    public AbstractBody(final String name,
+                        final double mass,
+                        final Vector2D position,
+                        final Vector2D velocity) {
+        this.name = name;
+        this.mass = mass;
+        this.position = position;
+        this.velocity = velocity;
+    }
 
     public String getName() {
         return name;
@@ -29,13 +41,20 @@ public abstract class AbstractBody implements celestialBody {
     }
 
     @Override
+    public Vector2D getVelocity() {
+        return velocity;
+    }
+
+    @Override
     public void applyForce(final Vector2D force) {
-        final Vector2D acceleration = force.scale(1.0 / mass); //a = F/m
-        velocity = velocity.add(acceleration); // v = v0 + a (simplified)
+        this.netForce = netForce.add(force);
     }
 
     @Override
     public void update(final double dt) {
-        position = position.add(velocity.scale(dt)); // x = x0 + v*t
+        final Vector2D acceleration = netForce.scale(1.0 / mass);
+        velocity = velocity.add(acceleration.scale(dt)); // v += a·dt
+        position = position.add(velocity.scale(dt)); // x += v·dt
+        netForce = Vector2D.ZERO; // reset for next tick
     }
 }
