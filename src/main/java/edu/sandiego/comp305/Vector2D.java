@@ -18,11 +18,11 @@ public final class Vector2D {
     }
 
     public double getX() {
-        return 0.0;
+        return x;
     }
 
     public double getY() {
-        return 0.0;
+        return y;
     }
 
     public Vector2D add(final Vector2D other) {
@@ -63,16 +63,24 @@ public final class Vector2D {
 
     @Override
     public boolean equals(final Object o) {
-        return this == o;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Vector2D)) {
+            return false;
+        }
+        final Vector2D other = (Vector2D) o;
+        return Double.compare(x, other.x) == 0
+                && Double.compare(y, other.y) == 0;
     }
 
     @Override
     public int hashCode() {
-        return 0;
+        return java.util.Objects.hash(x, y);
     }
 
     @Override
     public String toString() {
-        return "";
+        return "(" + x + ", " + y + ")";
     }
 }
