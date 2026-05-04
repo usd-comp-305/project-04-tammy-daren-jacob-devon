@@ -30,4 +30,11 @@ public class SimulationTests {
         assertEquals(SimulationStatus.RUNNING, sim.getStatus());
     }
 
+    @Test
+    void simulationGetsReset() {
+        Simulation sim = new Simulation();
+        sim.start();
+        sim.reset();
+        assertEquals(SimulationStatus.INITIAL, sim.getStatus());
+    }
 }
