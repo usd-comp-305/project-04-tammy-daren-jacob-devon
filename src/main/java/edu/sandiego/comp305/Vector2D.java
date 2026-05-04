@@ -1,0 +1,91 @@
+package edu.sandiego.comp305;
+
+/**
+ * Every operation returns a new Vector2D.
+ * Used for positions, velocities, and forces in the physics simulation.
+ */
+public final class Vector2D {
+
+    public static final Vector2D ZERO = new Vector2D(0.0, 0.0);
+
+    private final double x;
+
+    private final double y;
+
+    public Vector2D(final double x, final double y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public Vector2D add(final Vector2D other) {
+        return new Vector2D(x + other.x, y + other.y);
+    }
+
+    public Vector2D subtract(final Vector2D other) {
+        return new Vector2D(x - other.x, y - other.y);
+    }
+
+    public Vector2D scale(final double s) {
+        return new Vector2D(x * s, y * s);
+    }
+
+    public double magnitude() {
+        return Math.sqrt(magnitudeSquared());
+    }
+
+    public double magnitudeSquared() {
+        return x * x + y * y;
+    }
+
+    public double distanceTo(final Vector2D other) {
+        return Math.sqrt(distanceSquaredTo(other));
+    }
+
+    public double distanceSquaredTo(final Vector2D other) {
+        final double dx = x - other.x;
+        final double dy = y - other.y;
+        return dx * dx + dy * dy;
+    }
+
+    public Vector2D normalize() {
+        final double mag = magnitude();
+        if (mag == 0.0) {
+            throw new ArithmeticException("cannot normalize zero vector");
+        }
+        return new Vector2D(x / mag, y / mag);
+    }
+
+    public double dot(final Vector2D other) {
+        return x * other.x + y * other.y;
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof final Vector2D other)) {
+            return false;
+        }
+        return Double.compare(x, other.x) == 0
+                && Double.compare(y, other.y) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(x, y);
+    }
+
+    @Override
+    public String toString() {
+        return "(" + x + ", " + y + ")";
+    }
+}
