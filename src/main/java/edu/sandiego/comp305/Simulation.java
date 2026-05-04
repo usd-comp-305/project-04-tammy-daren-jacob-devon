@@ -8,13 +8,13 @@ public class Simulation {
 
     private final List<CelestialBody> bodies;
 
-    private boolean running;
+    private SimulationStatus status;
 
     private final List<SimulationListener> listeners;
 
     public Simulation() {
         this.bodies = new ArrayList<>();
-        this.running = false;
+        this.status = SimulationStatus.INITIAL;
         this.listeners = new ArrayList<>();
     }
 
@@ -23,7 +23,7 @@ public class Simulation {
     }
 
     public boolean isRunning() {
-        return running;
+        return false;
     }
 
     public void addBody(final CelestialBody body) {
