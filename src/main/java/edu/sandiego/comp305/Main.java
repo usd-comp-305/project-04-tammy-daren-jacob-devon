@@ -1,4 +1,4 @@
-git branpackage edu.sandiego.comp305;
+package edu.sandiego.comp305;
 
 public class Main {
     private Main() {
