@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class Vector2DTest {
@@ -167,5 +168,58 @@ class Vector2DTest {
     void scaleByNegativeFlipsComponents() {
         final Vector2D scaled = new Vector2D(2.0, 3.0).scale(-1.0);
         assertEquals(new Vector2D(-2.0, -3.0), scaled);
+    }
+
+    @Test
+    void magnitudeSquaredOfZeroIsZero() {
+        assertEquals(0.0, Vector2D.ZERO.magnitudeSquared());
+    }
+
+    @Test
+    void magnitudeSquaredOfThreeFourIs25() {
+        assertEquals(25.0, new Vector2D(3.0, 4.0).magnitudeSquared());
+    }
+
+    @Test
+    void magnitudeSquaredHandlesNegatives() {
+        assertEquals(25.0, new Vector2D(-3.0, -4.0).magnitudeSquared());
+    }
+
+    @Test
+    void magnitudeOfZeroIsZero() {
+        assertEquals(0.0, Vector2D.ZERO.magnitude(), 1e-9);
+    }
+
+    @Test
+    void magnitudeOfThreeFourIs5() {
+        assertEquals(5.0, new Vector2D(3.0, 4.0).magnitude(), 1e-9);
+    }
+
+    @Test
+    void magnitudeHandlesNegatives() {
+        assertEquals(5.0, new Vector2D(-3.0, -4.0).magnitude(), 1e-9);
+    }
+
+    @Test
+    void normalizeOfThreeFourGivesUnitVector() {
+        final Vector2D unit = new Vector2D(3.0, 4.0).normalize();
+        assertEquals(new Vector2D(0.6, 0.8), unit);
+    }
+
+    @Test
+    void normalizedHasUnitMagnitude() {
+        final Vector2D unit = new Vector2D(7.0, -3.0).normalize();
+        assertEquals(1.0, unit.magnitude(), 1e-9);
+    }
+
+    @Test
+    void normalizeOfUnitVectorIsItself() {
+        final Vector2D unit = new Vector2D(1.0, 0.0);
+        assertEquals(unit, unit.normalize());
+    }
+
+    @Test
+    void normalizeZeroThrowsException() {
+        assertThrows(ArithmeticException.class, Vector2D.ZERO::normalize);
     }
 }

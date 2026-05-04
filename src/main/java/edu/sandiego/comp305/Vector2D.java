@@ -38,11 +38,11 @@ public final class Vector2D {
     }
 
     public double magnitude() {
-        return 0.0;
+        return Math.sqrt(magnitudeSquared());
     }
 
     public double magnitudeSquared() {
-        return 0.0;
+        return x * x + y * y;
     }
 
     public double distanceTo(final Vector2D other) {
@@ -54,7 +54,11 @@ public final class Vector2D {
     }
 
     public Vector2D normalize() {
-        return null;
+        final double mag = magnitude();
+        if (mag == 0.0) {
+            throw new ArithmeticException("cannot normalize zero vector");
+        }
+        return new Vector2D(x / mag, y / mag);
     }
 
     public double dot(final Vector2D other) {
