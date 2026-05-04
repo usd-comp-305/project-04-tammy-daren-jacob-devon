@@ -33,7 +33,7 @@ test {
 }
 
 application {
-    mainClass = 'edu.sandiego.comp305.StringUtils'
+    mainClass = 'edu.sandiego.comp305.Main'
 }
 test.configure {
     mustRunAfter spotbugsMain
