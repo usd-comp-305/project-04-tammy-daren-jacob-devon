@@ -22,8 +22,8 @@ public class Simulation {
         return bodies.toString();
     }
 
-    public boolean isRunning() {
-        return false;
+    public SimulationStatus getStatus() {
+        return this.status;
     }
 
     public void addBody(final CelestialBody body) {
