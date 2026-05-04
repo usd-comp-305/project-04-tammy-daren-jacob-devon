@@ -14,11 +14,39 @@ public class SimulationTests {
     }
 
     @Test
+    void simulationTriesToStartAgain() {
+        Simulation sim = new Simulation();
+        sim.start();
+        assertThrows(RuntimeException.class, sim::start);
+    }
+
+    @Test
+    void simulationTriesToStartWhilePaused() {
+        Simulation sim = new Simulation();
+        sim.start();
+        assertThrows(RuntimeException.class, sim::start);
+    }
+
+    @Test
     void simulationGetsPaused() {
         Simulation sim = new Simulation();
         sim.start();
         sim.pause();
         assertEquals(SimulationStatus.PAUSED, sim.getStatus());
+    }
+
+    @Test
+    void simulationTriesToPauseAgain() {
+        Simulation sim = new Simulation();
+        sim.start();
+        sim.pause();
+        assertThrows(RuntimeException.class, sim::pause);
+    }
+
+    @Test
+    void simulationTriesToPauseWithoutStarting() {
+        Simulation sim = new Simulation();
+        assertThrows(RuntimeException.class, sim::pause);
     }
 
     @Test
@@ -31,10 +59,25 @@ public class SimulationTests {
     }
 
     @Test
+    void simulationTriesToResumeWithoutPausing() {
+        Simulation sim = new Simulation();
+        sim.start();
+        assertThrows(RuntimeException.class, sim::resume);
+    }
+
+    @Test
     void simulationGetsReset() {
         Simulation sim = new Simulation();
         sim.start();
         sim.reset();
         assertEquals(SimulationStatus.INITIAL, sim.getStatus());
+    }
+
+    @Test
+    void simulationTriesToResetAgain() {
+        Simulation sim = new Simulation();
+        sim.start();
+        sim.reset();
+        assertThrows(RuntimeException.class, sim::reset);
     }
 }
