@@ -66,10 +66,9 @@ public final class Vector2D {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Vector2D)) {
+        if (!(o instanceof final Vector2D other)) {
             return false;
         }
-        final Vector2D other = (Vector2D) o;
         return Double.compare(x, other.x) == 0
                 && Double.compare(y, other.y) == 0;
     }
