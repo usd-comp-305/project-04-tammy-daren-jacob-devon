@@ -18,61 +18,74 @@ public final class Vector2D {
     }
 
     public double getX() {
-        return 0.0;
+        return x;
     }
 
     public double getY() {
-        return 0.0;
+        return y;
     }
 
     public Vector2D add(final Vector2D other) {
-        return null;
+        return new Vector2D(x + other.x, y + other.y);
     }
 
     public Vector2D subtract(final Vector2D other) {
-        return null;
+        return new Vector2D(x - other.x, y - other.y);
     }
 
     public Vector2D scale(final double s) {
-        return null;
+        return new Vector2D(x * s, y * s);
     }
 
     public double magnitude() {
-        return 0.0;
+        return Math.sqrt(magnitudeSquared());
     }
 
     public double magnitudeSquared() {
-        return 0.0;
+        return x * x + y * y;
     }
 
     public double distanceTo(final Vector2D other) {
-        return 0.0;
+        return Math.sqrt(distanceSquaredTo(other));
     }
 
     public double distanceSquaredTo(final Vector2D other) {
-        return 0.0;
+        final double dx = x - other.x;
+        final double dy = y - other.y;
+        return dx * dx + dy * dy;
     }
 
     public Vector2D normalize() {
-        return null;
+        final double mag = magnitude();
+        if (mag == 0.0) {
+            throw new ArithmeticException("cannot normalize zero vector");
+        }
+        return new Vector2D(x / mag, y / mag);
     }
 
     public double dot(final Vector2D other) {
-        return 0.0;
+        return x * other.x + y * other.y;
     }
 
     @Override
     public boolean equals(final Object o) {
-        return this == o;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof final Vector2D other)) {
+            return false;
+        }
+        return Double.compare(x, other.x) == 0
+                && Double.compare(y, other.y) == 0;
     }
 
     @Override
     public int hashCode() {
-        return 0;
+        return java.util.Objects.hash(x, y);
     }
 
     @Override
     public String toString() {
-        return "";
+        return "(" + x + ", " + y + ")";
     }
 }
