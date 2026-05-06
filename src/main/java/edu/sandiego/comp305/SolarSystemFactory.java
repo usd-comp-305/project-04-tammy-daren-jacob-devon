@@ -1,8 +1,5 @@
 package edu.sandiego.comp305;
 
-import edu.sandiego.comp305.BodyFactory;
-import edu.sandiego.comp305.CelestialBody;
-
 import java.util.ArrayList;
 import java.util.List;
 
