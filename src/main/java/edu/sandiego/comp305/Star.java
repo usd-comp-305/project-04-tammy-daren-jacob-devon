@@ -1,6 +1,6 @@
 package edu.sandiego.comp305;
 
-public class Star extends AbstractBody {
+public final class Star extends AbstractBody {
 
     public Star(final String name, final double mass, final double radius,
                 final Vector2D position, final Vector2D velocity) {

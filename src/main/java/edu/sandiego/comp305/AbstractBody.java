@@ -2,17 +2,17 @@ package edu.sandiego.comp305;
 
 public abstract class AbstractBody implements CelestialBody {
 
-    protected String name;
+    private final String name;
 
-    protected double mass;
+    private final double mass;
 
-    protected double radius;
+    private final double radius;
 
-    protected Vector2D position;
+    private Vector2D position;
 
-    protected Vector2D velocity;
+    private Vector2D velocity;
 
-    private Vector2D netForce = Vector2D.ZERO;
+    private Vector2D netForce;
 
     public AbstractBody(final String name,
                         final double mass,
@@ -24,15 +24,12 @@ public abstract class AbstractBody implements CelestialBody {
         this.radius = radius;
         this.position = position;
         this.velocity = velocity;
+        this.netForce = Vector2D.ZERO;
     }
 
     @Override
     public String getName() {
         return name;
-    }
-
-    public void setName(final String name) {
-        this.name = name;
     }
 
     @Override
