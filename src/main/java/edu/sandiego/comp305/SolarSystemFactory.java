@@ -60,7 +60,8 @@ public class SolarSystemFactory implements BodyFactory {
     // places the planet at (distance, 0)
     // and gives it a tangential velocity
     // so it starts in a roughly circular orbit
-    private Planet createPlanet(final String name, final double distance, final double mass, final double radius) {
+    private Planet createPlanet(
+            final String name, final double distance, final double mass, final double radius) {
         final Vector2D position = new Vector2D(distance, 0);
 
         // TODO: v = sqrt(G * SUN_MASS / distance) — need to match whatever G
