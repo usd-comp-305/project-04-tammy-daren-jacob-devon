@@ -36,7 +36,7 @@ public class SolarSystemFactory implements BodyFactory {
     }
 
     @Override
-    public CelestialBody createSpaceship(final double x, final double y)
+    public CelestialBody createSpaceship(final double x, final double y) {
         spaceshipCount++;
         String name = "Spaceship-" + spaceshipCount;
         Vector2D position = new Vector2D(x, y);
