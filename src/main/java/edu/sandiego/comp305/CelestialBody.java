@@ -6,6 +6,8 @@ public interface CelestialBody {
 
     public abstract double getMass();
 
+    public abstract double getRadius();
+
     public abstract Vector2D getVelocity();
 
     public abstract BodyType getType();

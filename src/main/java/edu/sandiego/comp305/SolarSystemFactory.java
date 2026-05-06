@@ -16,6 +16,8 @@ public class SolarSystemFactory implements BodyFactory {
 
     private static final double SPACESHIP_MASS = 1.0;
 
+    private static final double SPACESHIP_RADIUS = 1.0;
+
     private int spaceshipCount = 0;
 
     @Override
@@ -50,11 +52,13 @@ public class SolarSystemFactory implements BodyFactory {
         spaceshipCount++;
         final String name = "Spaceship-" + spaceshipCount;
         final Vector2D position = new Vector2D(x, y);
-        return new Spaceship(name, SPACESHIP_MASS, position, Vector2D.ZERO);
+        return new Spaceship(name, SPACESHIP_MASS, SPACESHIP_RADIUS,
+                position, Vector2D.ZERO);
     }
 
     private Star createSun() {
-        return new Star("Sun", SUN_MASS, Vector2D.ZERO, Vector2D.ZERO);
+        return new Star("Sun", SUN_MASS, SUN_RADIUS,
+                Vector2D.ZERO, Vector2D.ZERO);
     }
 
     // places the planet at (distance, 0)
@@ -69,7 +73,7 @@ public class SolarSystemFactory implements BodyFactory {
         final double tangentialSpeed = 0;
         final Vector2D velocity = new Vector2D(0, tangentialSpeed);
 
-        return new Planet(name, mass, position, velocity);
+        return new Planet(name, mass, radius, position, velocity);
     }
 
     public int getSpaceshipCount() {

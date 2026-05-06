@@ -6,6 +6,8 @@ public abstract class AbstractBody implements CelestialBody {
 
     protected double mass;
 
+    protected double radius;
+
     protected Vector2D position;
 
     protected Vector2D velocity;
@@ -14,10 +16,12 @@ public abstract class AbstractBody implements CelestialBody {
 
     public AbstractBody(final String name,
                         final double mass,
+                        final double radius,
                         final Vector2D position,
                         final Vector2D velocity) {
         this.name = name;
         this.mass = mass;
+        this.radius = radius;
         this.position = position;
         this.velocity = velocity;
     }
@@ -38,6 +42,11 @@ public abstract class AbstractBody implements CelestialBody {
     @Override
     public double getMass() {
         return mass;
+    }
+
+    @Override
+    public double getRadius() {
+        return radius;
     }
 
     @Override
