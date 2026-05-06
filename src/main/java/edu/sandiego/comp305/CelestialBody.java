@@ -2,6 +2,8 @@ package edu.sandiego.comp305;
 
 public interface CelestialBody {
 
+    public abstract String getName();
+
     public abstract Vector2D getPosition();
 
     public abstract double getMass();

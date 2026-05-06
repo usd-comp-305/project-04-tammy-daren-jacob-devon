@@ -26,6 +26,7 @@ public abstract class AbstractBody implements CelestialBody {
         this.velocity = velocity;
     }
 
+    @Override
     public String getName() {
         return name;
     }
