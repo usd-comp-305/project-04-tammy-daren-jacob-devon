@@ -57,4 +57,7 @@ public abstract class AbstractBody implements CelestialBody {
         position = position.add(velocity.scale(dt)); // x += v·dt
         netForce = Vector2D.ZERO; // reset for next tick
     }
+
+    @Override
+    public abstract BodyType getType();
 }

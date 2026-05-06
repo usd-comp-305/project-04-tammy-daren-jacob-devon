@@ -8,6 +8,8 @@ public interface CelestialBody {
 
     public abstract Vector2D getVelocity();
 
+    public abstract BodyType getType();
+
     public abstract void applyForce(Vector2D force);
 
     public abstract void update(double dt);
