@@ -2,10 +2,6 @@ package edu.sandiego.comp305;
 
 import edu.sandiego.comp305.BodyFactory;
 import edu.sandiego.comp305.CelestialBody;
-import edu.sandiego.comp305.Star;
-import edu.sandiego.comp305.Planet;
-import edu.sandiego.comp305.Spaceship;
-import edu.sandiego.comp305.Vector2D;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +39,7 @@ public class SolarSystemFactory implements BodyFactory {
     }
 
     @Override
-    public CelestialBody createSpaceship(double x, double y) {
+    public CelestialBody createSpaceship(final double x, final double y)
         spaceshipCount++;
         String name = "Spaceship-" + spaceshipCount;
         Vector2D position = new Vector2D(x, y);
@@ -51,12 +47,12 @@ public class SolarSystemFactory implements BodyFactory {
     }
 
     private Star createSun() {
-        return new Star("Sun", SUN_MASS, Vector2D.ZERO, Vector2D.ZERO, SUN_RADIUS);
+        return new Star("Sun", SUN_MASS, Vector2D.ZERO, Vector2D.ZERO);
     }
 
     // places the planet at (distance, 0) and gives it a tangential velocity
     // so it starts in a roughly circular orbit
-    private Planet createPlanet(String name, double distance, double mass, double radius) {
+    private Planet createPlanet(final String name, final double distance, final double mass, final double radius) {
         Vector2D position = new Vector2D(distance, 0);
 
         // TODO: v = sqrt(G * SUN_MASS / distance) — need to match whatever G
@@ -64,7 +60,7 @@ public class SolarSystemFactory implements BodyFactory {
         double tangentialSpeed = 0;
         Vector2D velocity = new Vector2D(0, tangentialSpeed);
 
-        return new Planet(name, mass, position, velocity, radius, distance);
+        return new Planet(name, mass, position, velocity);
     }
 
     public int getSpaceshipCount() {
