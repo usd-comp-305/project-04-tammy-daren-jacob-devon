@@ -2,32 +2,34 @@ package edu.sandiego.comp305;
 
 public abstract class AbstractBody implements CelestialBody {
 
-    protected String name;
+    private final String name;
 
-    protected double mass;
+    private final double mass;
 
-    protected Vector2D position;
+    private final double radius;
 
-    protected Vector2D velocity;
+    private Vector2D position;
 
-    private Vector2D netForce = Vector2D.ZERO;
+    private Vector2D velocity;
+
+    private Vector2D netForce;
 
     public AbstractBody(final String name,
                         final double mass,
+                        final double radius,
                         final Vector2D position,
                         final Vector2D velocity) {
         this.name = name;
         this.mass = mass;
+        this.radius = radius;
         this.position = position;
         this.velocity = velocity;
+        this.netForce = Vector2D.ZERO;
     }
 
+    @Override
     public String getName() {
         return name;
-    }
-
-    public void setName(final String name) {
-        this.name = name;
     }
 
     @Override
@@ -38,6 +40,11 @@ public abstract class AbstractBody implements CelestialBody {
     @Override
     public double getMass() {
         return mass;
+    }
+
+    @Override
+    public double getRadius() {
+        return radius;
     }
 
     @Override
@@ -57,4 +64,7 @@ public abstract class AbstractBody implements CelestialBody {
         position = position.add(velocity.scale(dt)); // x += v·dt
         netForce = Vector2D.ZERO; // reset for next tick
     }
+
+    @Override
+    public abstract BodyType getType();
 }
