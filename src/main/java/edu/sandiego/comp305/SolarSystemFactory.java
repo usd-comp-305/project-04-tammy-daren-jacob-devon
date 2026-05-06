@@ -11,14 +11,16 @@ import java.util.List;
 public class SolarSystemFactory implements BodyFactory {
 
     private static final double SUN_MASS = 10000.0;
+
     private static final double SUN_RADIUS = 30.0;
+
     private static final double SPACESHIP_MASS = 1.0;
 
     private int spaceshipCount = 0;
 
     @Override
     public List<CelestialBody> createSolarSystem() {
-        List<CelestialBody> bodies = new ArrayList<>();
+        final List<CelestialBody> bodies = new ArrayList<>();
 
         bodies.add(createSun());
 
@@ -55,15 +57,16 @@ public class SolarSystemFactory implements BodyFactory {
         return new Star("Sun", SUN_MASS, Vector2D.ZERO, Vector2D.ZERO);
     }
 
-    // places the planet at (distance, 0) and gives it a tangential velocity
+    // places the planet at (distance, 0)
+    // and gives it a tangential velocity
     // so it starts in a roughly circular orbit
     private Planet createPlanet(final String name, final double distance, final double mass, final double radius) {
-        Vector2D position = new Vector2D(distance, 0);
+        final Vector2D position = new Vector2D(distance, 0);
 
         // TODO: v = sqrt(G * SUN_MASS / distance) — need to match whatever G
         //       the Simulation class uses
-        double tangentialSpeed = 0;
-        Vector2D velocity = new Vector2D(0, tangentialSpeed);
+        final double tangentialSpeed = 0;
+        final Vector2D velocity = new Vector2D(0, tangentialSpeed);
 
         return new Planet(name, mass, position, velocity);
     }
