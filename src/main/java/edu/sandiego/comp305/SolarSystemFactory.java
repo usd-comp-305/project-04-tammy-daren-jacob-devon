@@ -23,14 +23,22 @@ public class SolarSystemFactory implements BodyFactory {
         bodies.add(createSun());
 
         // TODO: fill in real distance/mass/radius values for each planet
-        bodies.add(createPlanet("Mercury",  /* distance */ 0, /* mass */ 0, /* radius */ 0));
-        bodies.add(createPlanet("Venus",    /* distance */ 0, /* mass */ 0, /* radius */ 0));
-        bodies.add(createPlanet("Earth",    /* distance */ 0, /* mass */ 0, /* radius */ 0));
-        bodies.add(createPlanet("Mars",     /* distance */ 0, /* mass */ 0, /* radius */ 0));
-        bodies.add(createPlanet("Jupiter",  /* distance */ 0, /* mass */ 0, /* radius */ 0));
-        bodies.add(createPlanet("Saturn",   /* distance */ 0, /* mass */ 0, /* radius */ 0));
-        bodies.add(createPlanet("Uranus",   /* distance */ 0, /* mass */ 0, /* radius */ 0));
-        bodies.add(createPlanet("Neptune",  /* distance */ 0, /* mass */ 0, /* radius */ 0));
+        bodies.add(createPlanet("Mercury",
+                /* distance */ 0, /* mass */ 0, /* radius */ 0));
+        bodies.add(createPlanet("Venus",
+                /* distance */ 0, /* mass */ 0, /* radius */ 0));
+        bodies.add(createPlanet("Earth",
+                /* distance */ 0, /* mass */ 0, /* radius */ 0));
+        bodies.add(createPlanet("Mars",
+                /* distance */ 0, /* mass */ 0, /* radius */ 0));
+        bodies.add(createPlanet("Jupiter",
+                /* distance */ 0, /* mass */ 0, /* radius */ 0));
+        bodies.add(createPlanet("Saturn",
+                /* distance */ 0, /* mass */ 0, /* radius */ 0));
+        bodies.add(createPlanet("Uranus",
+                /* distance */ 0, /* mass */ 0, /* radius */ 0));
+        bodies.add(createPlanet("Neptune",
+                /* distance */ 0, /* mass */ 0, /* radius */ 0));
 
         return bodies;
     }
